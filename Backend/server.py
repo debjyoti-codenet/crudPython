@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from Config.db import get_connection
 from Routes.userRoutes import router as userRouter
 app = FastAPI()
-app.include_router(userRouter)
+app.include_router(userRouter) #from Routes.userRoutes import router as userRouter
+
 
 @app.get("/")
 def home():

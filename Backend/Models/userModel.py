@@ -3,18 +3,20 @@ from psycopg2.extras import RealDictCursor
 
 def create_user(name, email, password):
 
-    conn = get_connection()
-    cursor = conn.cursor()
+    conn = get_connection()# create connection
+    cursor = conn.cursor() #execution object communicate with sql
 
     query = """
         INSERT INTO users(name, email, password)
         VALUES(%s, %s, %s)
         RETURNING id, name, email
     """
+    
+    # triple quets (""") used for multiline string
 
     cursor.execute(query, (name, email, password))
 
-    user = cursor.fetchone()
+    user = cursor.fetchone() # fetch ONLY first row
 
     conn.commit()
 

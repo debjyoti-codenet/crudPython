@@ -1,13 +1,17 @@
 from fastapi import APIRouter, Depends
 
-from Controllers.userController import (
-    register_user,
-    login_user,
-    current_user,
-    all_user_data,
-    delete_user,
-    update_current_user
-)
+from Controllers.userController import * 
+
+# from folder.file import * (* -> all)
+
+# (
+#     register_user,
+#     login_user,
+#     current_user,
+#     all_user_data,
+#     delete_user,
+#     update_current_user
+# )
 
 from schemas.userSchema import (
     UserRegisterSchema,
